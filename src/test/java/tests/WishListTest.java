@@ -1,16 +1,13 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.ItemPage;
 import pages.SignInPage;
 import pages.WishlistPage;
 
 import static java.util.UUID.randomUUID;
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
-import static org.testng.AssertJUnit.assertEquals;
+
 
 
 public class WishListTest extends BaseTest {
