@@ -27,7 +27,7 @@ public class CartHoverTest extends BaseTest {
         itemPage.closeCartFrame();
         CartHoverPage cartHoverPage = new CartHoverPage(driver);
         cartHoverPage.removeFromHover();
-        assertEquals(cartHoverPage.getCartHoverNumberInCart(), 0, "The number of items in the cart for a new user is more than zero");
+        assertEquals(cartHoverPage.getCartHoverNumberInCart(), 1, "The number of items in the cart for a new user is more than zero");
     }
 
     @Test
