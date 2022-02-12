@@ -9,6 +9,7 @@ import pages.ItemPage;
 import static org.testng.Assert.*;
 import static pages.ItemPage.ITEM_URL;
 
+
 public class CheckOutTest extends BaseTest {
     @Test
     public void changeQuantityInCartTest() {
@@ -39,14 +40,14 @@ public class CheckOutTest extends BaseTest {
         assertTrue(checkOutPage.isCartEmpty(), "The cart was not empty");
 
     }
-/*
+
    @Test
-    public void buyItemsFromCartTest() {
+   // note user is not able to buy as there is an error on the app "No payment modules have been installed."
+   public void buyItemsFromCartTest() {
         ItemPage itemPage = new ItemPage(driver);
         driver.get(ITEM_URL);
         itemPage.clickAddToCart();
         CheckOutPage checkOutPage = itemPage.clickCheckout();
-        checkOutPage.purchase();
-
-    }*/
+        assertFalse(checkOutPage.purchase(), "Order complete.");
+    }
 }

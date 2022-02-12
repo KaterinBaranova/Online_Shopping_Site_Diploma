@@ -130,7 +130,6 @@ public class ItemPage extends BasePage<ItemPage> {
     public CheckOutPage clickCheckout() {
         getActions().click(proceedToCheckoutButton);
         CheckOutPage checkOutPage = new CheckOutPage(driver);
-        checkOutPage.isLoaded();
         return checkOutPage;
     }
 }

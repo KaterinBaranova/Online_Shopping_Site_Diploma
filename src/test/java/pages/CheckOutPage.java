@@ -5,6 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -13,23 +14,18 @@ import static tests.BaseTest.PASSWORD;
 
 
 public class CheckOutPage extends BasePage<CheckOutPage> {
-    @FindBy(css = "[href*='order&step=1']")
-    private WebElement proceedToStep2;
 
-    @FindBy(css = "[name='processAddress']")
-    private WebElement proceedToStep4;
+    @FindBy(partialLinkText = "Proceed to checkout")
+    private WebElement checkOutBtn;
 
-    @FindBy(css = "[name='processCarrier']")
-    private WebElement proceedToStep5;
-
-    @FindBy(className = "checker")
+    @FindBy(id = "uniform-cgv")
     private WebElement termsOfServiceCheckbox;
 
-    @FindBy(css = "#cart_navigation > button")
+    @FindBy(css = "[name='processCarrier']")
     private WebElement completeOrder;
 
-    @FindBy(css = "#center_column > div")
-    private WebElement successMessage;
+    @FindBy(id = "HOOK_TOP_PAYMENT")
+    private WebElement paymentBlock;
 
     @FindBy(id = "summary_products_quantity")
     private WebElement itemsInCart;
@@ -52,8 +48,36 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
     @FindBy( id= "firstname")
     private WebElement firstName;
 
-    public CheckOutPage(WebDriver driver) {
-        super(driver, "index.php?controller=order");
+    @FindBy( id= "lastname")
+    private WebElement lastname;
+
+    @FindBy( id= "address1")
+    private WebElement address1;
+
+    @FindBy( id= "city")
+    private WebElement city;
+
+    @FindBy( id= "postcode")
+    private WebElement postcode;
+
+    @FindBy( id= "phone")
+    private WebElement phone;
+
+    @FindBy( id= "phone_mobile")
+    private WebElement phone_mobile;
+
+    @FindBy( id= "alias")
+    private WebElement other;
+
+    @FindBy( id= "submitAddress")
+    private WebElement saveBtn;
+
+    @FindBy( name = "processAddress")
+    private WebElement proceedToCheckOutBtn;
+
+
+ public CheckOutPage(WebDriver driver) {
+        super(driver, "http://prestashop.qatestlab.com.ua/en/order");
     }
 
     public int getItemsInCart() {
@@ -95,15 +119,25 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
     }
 
     public boolean purchase() {
-        getActions().click(proceedToStep2);
+        getActions().click(checkOutBtn);
         getActions().type(emailField, LOGIN);
         getActions().type(passwordField, PASSWORD);
         getActions().click(signInButton);
-        getActions().click(proceedToStep4);
+        getActions().type(firstName, "Kate");
+        getActions().type(lastname, "Sh");
+        getActions().type(address1, "123 Melrose street");
+        getActions().type(city, "New York");
+        getActions().type(postcode, "12345");
+        getActions().type(phone, "1234567");
+        getActions().type(phone_mobile, "1234567");
+        Select state = new Select(driver.findElement(By.id("id_state")));
+        state.selectByIndex(1);
+        getActions().type(other, "some other text");
+        getActions().click(saveBtn);
+        getActions().click(proceedToCheckOutBtn);
         getActions().click(termsOfServiceCheckbox);
-        getActions().click(proceedToStep5);
         getActions().click(completeOrder);
-        return successMessage.getText().contains("is complete");
+        return paymentBlock.getText().contains("No payment modules have been installed"); //seems bug on the app
     }
 
     @Override
