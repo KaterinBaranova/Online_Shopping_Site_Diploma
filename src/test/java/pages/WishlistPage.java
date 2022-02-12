@@ -57,10 +57,6 @@ public class WishlistPage extends BasePage<WishlistPage> {
         return getCell(wishlistName, Column.NAME) != null;
     }
 
-    public void clickDeleteToWishlist() {
-        getActions().click(deleteWishlistItem);
-    }
-
     private WebElement getCell(String wishlistName, Column columnName) {
         List<WebElement> allRows = wishlistTable.findElements(By.xpath("//*[contains(@class,\"table\")]/tbody/tr[*]/td[1]"));
         int rowNumberCounter = 1;
@@ -81,13 +77,8 @@ public class WishlistPage extends BasePage<WishlistPage> {
     }
 
     enum Column {
-        NAME(1),
-        QTY(2),
-        VIEWED(3),
-        CREATED(4),
-        DIRECTLINK(5),
-        DELETE(6);
 
+        NAME(1);
         private final int columnNumber;
 
         Column(int columnNumber) {

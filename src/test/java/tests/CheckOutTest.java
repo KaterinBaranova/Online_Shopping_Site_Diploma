@@ -42,7 +42,7 @@ public class CheckOutTest extends BaseTest {
     }
 
    @Test
-   // note user is not able to buy as there is an error on the app "No payment modules have been installed."
+   // Note user is not able to buy as there is an error on the app "No payment modules have been installed."
    public void buyItemsFromCartTest() {
         ItemPage itemPage = new ItemPage(driver);
         driver.get(ITEM_URL);
