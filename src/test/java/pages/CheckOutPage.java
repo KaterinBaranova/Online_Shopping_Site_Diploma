@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import enums.ColumnName;
 
 import java.util.List;
 
@@ -89,7 +90,7 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
         List<WebElement> allRows = cartTable.findElements(By.cssSelector("[class*='cart_item'"));
         for (WebElement row : allRows) {
             if (row.findElement(By.cssSelector("td.cart_description > p > a")).getText().contains(itemName)) {
-                return row.findElement(By.className(Column.QTY.columnName));
+                return row.findElement(By.className(ColumnName.QTY.columnName));
             }
         }
         throw new NoSuchElementException("Unable to locate {" + itemName + "} wishlist");
@@ -155,19 +156,4 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
         return false;
     }
 
-    enum Column {
-        PRODUCT("cart_product"),
-        DESCRIPTION("cart_description"),
-        AVAIL("cart_avail"),
-        UNITPRICE("cart_unit"),
-        QTY("cart_quantity"),
-        TOTAL("cart_total"),
-        DELETE("cart_delete");
-
-        private final String columnName;
-
-        Column(String columnName) {
-            this.columnName = columnName;
-        }
-    }
 }

@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import enums.ColumnNumber;
 
 import java.util.List;
 
@@ -54,15 +55,15 @@ public class WishlistPage extends BasePage<WishlistPage> {
 
     public boolean isWishlistPresent(String wishlistName) {
         getActions().isElementDisplayed(wishlistTable);
-        return getCell(wishlistName, Column.NAME) != null;
+        return getCell(wishlistName) != null;
     }
 
-    private WebElement getCell(String wishlistName, Column columnName) {
+    private WebElement getCell(String wishlistName) {
         List<WebElement> allRows = wishlistTable.findElements(By.xpath("//*[contains(@class,\"table\")]/tbody/tr[*]/td[1]"));
         int rowNumberCounter = 1;
         for (WebElement row : allRows) {
             if (row.getText().equals(wishlistName)) {
-                return wishlistTable.findElement(By.xpath("//*[contains(@class,\"table\")]/tbody/tr[" + rowNumberCounter + "]/td[" + columnName.columnNumber + "]"));
+                return wishlistTable.findElement(By.xpath("//*[contains(@class,\"table\")]/tbody/tr[" + rowNumberCounter + "]/td[" + ColumnNumber.NAME.columnNumber + "]"));
             } else {
                 rowNumberCounter++;
             }
@@ -74,15 +75,5 @@ public class WishlistPage extends BasePage<WishlistPage> {
         getActions().click(firstTopSellingItem);
         getActions().isPageReady();
         return new ItemPage(driver);
-    }
-
-    enum Column {
-
-        NAME(1);
-        private final int columnNumber;
-
-        Column(int columnNumber) {
-            this.columnNumber = columnNumber;
-        }
     }
 }
