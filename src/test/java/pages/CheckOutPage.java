@@ -82,7 +82,7 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
 
     public int getItemsInCart() {
         getActions().isElementDisplayed(itemsInCart);
-        return Integer.parseInt(itemsInCart.getText().replaceAll("[^0-9.]", ""));
+        return Integer.parseInt(String.valueOf(itemsInCart.getText().charAt(0)));
     }
 
     private WebElement getItem(String itemName) {
