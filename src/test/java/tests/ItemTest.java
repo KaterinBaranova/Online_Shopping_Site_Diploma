@@ -5,7 +5,6 @@ import pages.ItemPage;
 
 import static org.testng.Assert.*;
 import static org.testng.Assert.assertEquals;
-import static pages.ItemPage.ITEM_URL;
 
 public class ItemTest extends BaseTest {
 

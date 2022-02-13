@@ -6,7 +6,6 @@ import pages.CheckOutPage;
 import pages.ItemPage;
 
 import static org.testng.Assert.assertEquals;
-import static pages.ItemPage.ITEM_URL;
 
 public class CartHoverTest extends BaseTest {
     @Test

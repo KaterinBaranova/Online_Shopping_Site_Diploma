@@ -7,8 +7,6 @@ import pages.ItemPage;
 
 
 import static org.testng.Assert.*;
-import static pages.ItemPage.ITEM_URL;
-
 
 public class CheckOutTest extends BaseTest {
     @Test
