@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class ItemPage extends BasePage<ItemPage> {
+public class ItemPage extends BasePage {
 
     public static final String ITEM_URL = "http://prestashop.qatestlab.com.ua/en/tshirts/1-faded-short-sleeve-tshirts.html";
 
@@ -46,7 +46,7 @@ public class ItemPage extends BasePage<ItemPage> {
     private WebElement closeCartFrame;
 
     public ItemPage(WebDriver driver) {
-        super(driver,ITEM_URL);
+        super(driver);
     }
 
     public void clickAddToCart() {

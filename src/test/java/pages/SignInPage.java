@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends BasePage<SignInPage> {
+public class SignInPage extends BasePage{
 
 
     public static final String SIGNIN_URL = "http://prestashop.qatestlab.com.ua/en/authentication?back=my-account";
@@ -33,13 +33,7 @@ public class SignInPage extends BasePage<SignInPage> {
 
 
     public SignInPage(WebDriver driver) {
-        super(driver,SIGNIN_URL);
-    }
-
-
-    @Override
-    protected void isLoaded() throws Error {
-
+        super(driver);
     }
 
     public void signInWithCredentials(String email, String password) {

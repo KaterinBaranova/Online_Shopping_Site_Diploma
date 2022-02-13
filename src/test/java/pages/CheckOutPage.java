@@ -14,7 +14,7 @@ import static tests.BaseTest.LOGIN;
 import static tests.BaseTest.PASSWORD;
 
 
-public class CheckOutPage extends BasePage<CheckOutPage> {
+public class CheckOutPage extends BasePage {
 
     @FindBy(partialLinkText = "Proceed to checkout")
     private WebElement checkOutBtn;
@@ -78,7 +78,7 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
 
 
     public CheckOutPage(WebDriver driver) {
-        super(driver, "http://prestashop.qatestlab.com.ua/en/order");
+        super(driver);
     }
 
     public int getItemsInCart() {

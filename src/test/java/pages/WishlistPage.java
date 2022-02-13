@@ -7,7 +7,7 @@ import enums.ColumnNumber;
 import java.util.List;
 
 
-public class WishlistPage extends BasePage<WishlistPage> {
+public class WishlistPage extends BasePage{
 
     @FindBy(xpath = "//*[@id=\"best-sellers_block_right\"]/div/ul/li[1]/a")
     private WebElement firstTopSellingItem;
@@ -25,12 +25,7 @@ public class WishlistPage extends BasePage<WishlistPage> {
     private WebElement deleteWishlistItem;
 
     public WishlistPage(WebDriver driver) {
-        super(driver,"index.php?fc=module&module=/module/blockwishlist/mywishlist");
-    }
-
-    @Override
-    protected void isLoaded() throws Error {
-
+        super(driver);
     }
 
     public void create(String wishlistName) {

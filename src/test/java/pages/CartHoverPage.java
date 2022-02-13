@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 
-public class CartHoverPage extends BasePage<CartHoverPage> {
+public class CartHoverPage extends BasePage {
 
     @FindBy(className = "shopping_cart")
     private WebElement cartHover;
@@ -25,12 +25,7 @@ public class CartHoverPage extends BasePage<CartHoverPage> {
     private WebElement removeFromHover;
 
     public CartHoverPage(WebDriver driver) {
-        super(driver,"index.php?id_product=2&controller=product");
-    }
-
-    @Override
-    protected void isLoaded() throws Error {
-
+        super(driver);
     }
 
     private WebElement getCartHoverItem(String productName) {
@@ -49,13 +44,6 @@ public class CartHoverPage extends BasePage<CartHoverPage> {
 
     private List<WebElement> getCartItems() {
         return cartHover.findElements(By.cssSelector("dt[class*=\"item\"]"));
-    }
-
-    public boolean removeItemFromCart(String productName) {
-        WebElement itemToRemove = getCartHoverItem(productName).findElement(By.className("remove_link"));
-        getActions().hover().moveToElement(enableHoverElement).build().perform();
-        getActions().click(itemToRemove);
-        return getActions().isElementNotDisplayed(itemToRemove);
     }
 
     public void checkOut() {
