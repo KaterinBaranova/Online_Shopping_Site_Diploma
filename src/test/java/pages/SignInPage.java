@@ -48,7 +48,7 @@ public class SignInPage extends BasePage{
 
     }
 
-    public void signInLink() {
+    public void clickSignInLink() {
         getActions().click(signInLink);
 
     }

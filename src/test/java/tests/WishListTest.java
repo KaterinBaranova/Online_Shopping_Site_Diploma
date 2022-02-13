@@ -15,7 +15,7 @@ public class WishListTest extends BaseTest {
     @Test
     public void createAndUpdateWishlist() {
         SignInPage signInPage = new SignInPage(driver);
-        signInPage.signInLink();
+        signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         // create wishlist test
         WishlistPage wishlistPage = signInPage.openWishListPage();

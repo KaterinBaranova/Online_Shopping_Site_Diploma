@@ -16,7 +16,7 @@ public class SignInTest extends BaseTest {
     public void signInPositiveTest() {
 
         SignInPage signInPage = new SignInPage(driver);
-        signInPage.signInLink();
+        signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         assertTrue(signInPage.isSignOutLinkDisplayed(), "Sign out link is not displayed on the page");
     }
@@ -26,7 +26,7 @@ public class SignInTest extends BaseTest {
 
         String expected_error_message = "An email address required.";
         SignInPage signInPage = new SignInPage(driver);
-        signInPage.signInLink();
+        signInPage.clickSignInLink();
         signInPage.signInWithCredentials(" ", PASSWORD);
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
@@ -36,7 +36,7 @@ public class SignInTest extends BaseTest {
 
         String expected_error_message = "Password is required.";
         SignInPage signInPage = new SignInPage(driver);
-        signInPage.signInLink();
+        signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, " ");
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
@@ -46,7 +46,7 @@ public class SignInTest extends BaseTest {
 
         String expected_error_message = "Authentication failed.";
         SignInPage signInPage = new SignInPage(driver);
-        signInPage.signInLink();
+        signInPage.clickSignInLink();
         signInPage.signInWithCredentials(INVALID_USERNAME, INVALID_PASSWORD);
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
@@ -55,7 +55,7 @@ public class SignInTest extends BaseTest {
     public void signOut() {
 
         SignInPage signInPage = new SignInPage(driver);
-        signInPage.signInLink();
+        signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         signInPage.signOut();
         assertTrue(signInPage.isSignInLinkDisplayed(),"SignIn link was not displayed after sign out action");}
