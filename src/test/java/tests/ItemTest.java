@@ -34,7 +34,7 @@ public class ItemTest extends BaseTest {
         ItemPage itemPage = new ItemPage(driver);
         driver.get(ITEM_URL);
         itemPage.setColor("Blue");
-        assertEquals("http://prestashop.qatestlab.com.ua/en/tshirts/1-faded-short-sleeve-tshirts.html#/size-s/color-blue", itemPage.getUrl(), "Images are not filtered based on color");
+        itemPage.clickAddToCart();
+        assertEquals(itemPage.getColorFromCartFrame(), "Blue", "Color doesn't match to values in the cart frame");
     }
-
 }
