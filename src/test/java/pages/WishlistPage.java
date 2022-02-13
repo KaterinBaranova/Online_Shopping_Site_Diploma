@@ -53,7 +53,6 @@ public class WishlistPage extends BasePage{
 
     public ItemPage openFirstTopSellingItem() {
         getActions().click(firstTopSellingItem);
-        getActions().isPageReady();
         return new ItemPage(driver);
     }
 }
