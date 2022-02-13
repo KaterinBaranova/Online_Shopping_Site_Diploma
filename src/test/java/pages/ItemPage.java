@@ -15,7 +15,7 @@ public class ItemPage extends BasePage {
     @FindBy(id = "layer_cart")
     private WebElement cartFrame;
 
-    @FindBy(id = "add_to_cart")
+    @FindBy(name = "Submit")
     private WebElement addToCartButton;
 
     @FindBy(css = "a[title='Proceed to checkout']")

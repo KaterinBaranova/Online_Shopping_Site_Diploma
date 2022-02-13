@@ -10,8 +10,7 @@ import enums.ColumnName;
 
 import java.util.List;
 
-import static tests.BaseTest.LOGIN;
-import static tests.BaseTest.PASSWORD;
+import static tests.BaseTest.*;
 
 
 public class CheckOutPage extends BasePage {
@@ -120,24 +119,24 @@ public class CheckOutPage extends BasePage {
     }
 
     public boolean purchase() {
-        getActions().click(checkOutBtn);
-        getActions().type(emailField, LOGIN);
-        getActions().type(passwordField, PASSWORD);
-        getActions().click(signInButton);
-        getActions().type(firstName, "Kate");
-        getActions().type(lastname, "Sh");
-        getActions().type(address1, "123 Melrose street");
-        getActions().type(city, "New York");
-        getActions().type(postcode, "12345");
-        getActions().type(phone, "1234567");
-        getActions().type(phone_mobile, "1234567");
+        checkOutBtn.click();
+        emailField.sendKeys(LOGIN);
+        passwordField.sendKeys(PASSWORD);
+        signInButton.click();
+        firstName.sendKeys(FIRSTNAME);
+        lastname.sendKeys(LASTNAME);
+        address1.sendKeys(ADDRESS1);
+        city.sendKeys(CITY);
+        postcode.sendKeys(POSTCODE);
+        phone.sendKeys(PHONE);
+        phone_mobile.sendKeys(PHONEMOBILE);
         Select state = new Select(driver.findElement(By.id("id_state")));
         state.selectByIndex(1);
-        getActions().type(other, "some other text");
-        getActions().click(saveBtn);
-        getActions().click(proceedToCheckOutBtn);
-        getActions().click(termsOfServiceCheckbox);
-        getActions().click(completeOrder);
+        other.sendKeys(OTHER);
+        saveBtn.click();
+        proceedToCheckOutBtn.click();
+        termsOfServiceCheckbox.click();
+        completeOrder.click();
         return paymentBlock.getText().contains("No payment modules have been installed"); //seems bug on the app
     }
 }
