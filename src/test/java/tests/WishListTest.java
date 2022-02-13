@@ -25,7 +25,7 @@ public class WishListTest extends BaseTest {
         // update wishlist test
         ItemPage itemPage = wishlistPage.openFirstTopSellingItem();
         itemPage.clickAddToWishlist();
-        assertTrue(itemPage.getFancyBoxText(), "Added to your wishlist.");
+        assertTrue(itemPage.isFancyBoxTextDisplayed(), "Added to your wishlist.");
     }
 }
 

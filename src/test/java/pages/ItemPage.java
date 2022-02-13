@@ -96,9 +96,8 @@ public class ItemPage extends BasePage {
         return sizeAndColorInCartFrame.getText().substring(0, sizeAndColorInCartFrame.getText().length() - 3);
     }
 
-    public boolean getFancyBoxText() {
-        getActions().isElementDisplayed(fancyBox);
-        return true;
+    public boolean isFancyBoxTextDisplayed() {
+        return getActions().isElementDisplayed(fancyBox);
     }
 
     public String getUrl() {
