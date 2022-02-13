@@ -33,21 +33,6 @@ public class WishlistPage extends BasePage<WishlistPage> {
 
     }
 
-    @Override
-    public void open() {
-
-    }
-
-    @Override
-    public void login(String login, String password) {
-
-    }
-
-    @Override
-    public boolean deletelWishlist(String wishlistName) {
-        return false;
-    }
-
     public void create(String wishlistName) {
         getActions().type(newWishlistNameField, wishlistName);
         getActions().click(submitNewWishlistButton);

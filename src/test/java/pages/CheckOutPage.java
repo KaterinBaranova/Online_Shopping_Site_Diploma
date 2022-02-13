@@ -46,38 +46,38 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
     @FindBy(id = "SubmitLogin")
     private WebElement signInButton;
 
-    @FindBy( id= "firstname")
+    @FindBy(id = "firstname")
     private WebElement firstName;
 
-    @FindBy( id= "lastname")
+    @FindBy(id = "lastname")
     private WebElement lastname;
 
-    @FindBy( id= "address1")
+    @FindBy(id = "address1")
     private WebElement address1;
 
-    @FindBy( id= "city")
+    @FindBy(id = "city")
     private WebElement city;
 
-    @FindBy( id= "postcode")
+    @FindBy(id = "postcode")
     private WebElement postcode;
 
-    @FindBy( id= "phone")
+    @FindBy(id = "phone")
     private WebElement phone;
 
-    @FindBy( id= "phone_mobile")
+    @FindBy(id = "phone_mobile")
     private WebElement phone_mobile;
 
-    @FindBy( id= "alias")
+    @FindBy(id = "alias")
     private WebElement other;
 
-    @FindBy( id= "submitAddress")
+    @FindBy(id = "submitAddress")
     private WebElement saveBtn;
 
-    @FindBy( name = "processAddress")
+    @FindBy(name = "processAddress")
     private WebElement proceedToCheckOutBtn;
 
 
- public CheckOutPage(WebDriver driver) {
+    public CheckOutPage(WebDriver driver) {
         super(driver, "http://prestashop.qatestlab.com.ua/en/order");
     }
 
@@ -140,20 +140,4 @@ public class CheckOutPage extends BasePage<CheckOutPage> {
         getActions().click(completeOrder);
         return paymentBlock.getText().contains("No payment modules have been installed"); //seems bug on the app
     }
-
-    @Override
-    public void open() {
-
-    }
-
-    @Override
-    public void login(String login, String password) {
-
-    }
-
-    @Override
-    public boolean deletelWishlist(String wishlistName) {
-        return false;
-    }
-
 }

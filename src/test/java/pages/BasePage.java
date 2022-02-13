@@ -38,11 +38,5 @@ public abstract class BasePage <T extends LoadableComponent<T>> extends Loadable
              throw new Error(action.getCurrentUrl() + " is not loaded");
          }
      }
-
-    public abstract void open();
-
-    public abstract void login(String login, String password);
-
-    public abstract boolean deletelWishlist(String wishlistName);
 }
 

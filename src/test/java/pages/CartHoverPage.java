@@ -33,21 +33,6 @@ public class CartHoverPage extends BasePage<CartHoverPage> {
 
     }
 
-    @Override
-    public void open() {
-
-    }
-
-    @Override
-    public void login(String login, String password) {
-
-    }
-
-    @Override
-    public boolean deletelWishlist(String wishlistName) {
-        return false;
-    }
-
     private WebElement getCartHoverItem(String productName) {
         List<WebElement> cartList = getCartItems();
         for (WebElement cartItem : cartList) {

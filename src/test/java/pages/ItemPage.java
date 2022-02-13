@@ -49,21 +49,6 @@ public class ItemPage extends BasePage<ItemPage> {
         super(driver,ITEM_URL);
     }
 
-    @Override
-    public void open() {
-
-    }
-
-    @Override
-    public void login(String login, String password) {
-
-    }
-
-    @Override
-    public boolean deletelWishlist(String wishlistName) {
-        return false;
-    }
-
     public void clickAddToCart() {
         getActions().click(addToCartButton);
         getActions().isElementDisplayed(proceedToCheckoutButton);

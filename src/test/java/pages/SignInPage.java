@@ -42,21 +42,6 @@ public class SignInPage extends BasePage<SignInPage> {
 
     }
 
-    @Override
-    public void open() {
-
-    }
-
-    @Override
-    public void login(String login, String password) {
-
-    }
-
-    @Override
-    public boolean deletelWishlist(String wishlistName) {
-        return false;
-    }
-
     public void signInWithCredentials(String email, String password) {
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
