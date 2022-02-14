@@ -9,9 +9,6 @@ import java.util.List;
 
 public class WishlistPage extends BasePage{
 
-    @FindBy(xpath = "//*[@id=\"best-sellers_block_right\"]/div/ul/li[1]/a")
-    private WebElement firstTopSellingItem;
-
     @FindBy(id = "name")
     private WebElement newWishlistNameField;
 
@@ -49,10 +46,5 @@ public class WishlistPage extends BasePage{
             }
         }
         throw new NoSuchElementException("Unable to locate {" + wishlistName + "} wishlist");
-    }
-
-    public ItemPage openFirstTopSellingItem() {
-        getActions().click(firstTopSellingItem);
-        return new ItemPage(driver);
     }
 }

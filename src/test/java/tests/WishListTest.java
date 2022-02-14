@@ -34,7 +34,7 @@ public class WishListTest extends BaseTest {
         wishlistPage.create(wishlistName);
         assertTrue(wishlistPage.isWishlistPresent(wishlistName), "Specified Wishlist was not found");
         // update wishlist test
-        wishlistPage.openFirstTopSellingItem();
+        itemPage.open();
         itemPage.clickAddToWishlist();
         assertTrue(itemPage.isFancyBoxTextDisplayed(), "Added to your wishlist.");
     }
