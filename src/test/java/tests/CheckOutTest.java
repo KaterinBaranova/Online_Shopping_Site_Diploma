@@ -49,7 +49,24 @@ public class CheckOutTest extends BaseTest {
    // Note user is not able to buy as there is an error on the app "No payment modules have been installed."
    public void purchaseItemsFromCartTest() {
         itemPage.clickAddToCart();
-        CheckOutPage checkOutPage = itemPage.clickCheckout();
-        assertFalse(checkOutPage.purchase(), "Order complete.");
+        itemPage.clickCheckout();
+        checkOutPage.clickCheckOutBtn();
+        checkOutPage.fillEmailField();
+        checkOutPage.fillPasswordField();
+        checkOutPage.clickSignInButton();
+        checkOutPage.fillFirstName();
+        checkOutPage.fillLastName();
+        checkOutPage.fillAddress();
+        checkOutPage.fillCity();
+        checkOutPage.fillPostcode();
+        checkOutPage.fillPhone();
+        checkOutPage.fillMobilePhone();
+        checkOutPage.selectState();
+        checkOutPage.fillAddressTitle();
+        checkOutPage.clickSaveBtn();
+        checkOutPage.clickProceedToCheckOutBtn();
+        checkOutPage.clickTermsOfServiceCheckbox();
+        checkOutPage.clickCompleteOrder();
+        assertTrue(checkOutPage.purchase(), "Order complete.");
     }
 }

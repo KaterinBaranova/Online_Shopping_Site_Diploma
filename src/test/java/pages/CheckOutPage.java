@@ -20,7 +20,7 @@ public class CheckOutPage extends BasePage {
     @FindBy(css = "[name='processCarrier']")
     private WebElement completeOrder;
 
-    @FindBy(id = "HOOK_TOP_PAYMENT")
+    @FindBy(css = "[class='alert alert-warning']")
     private WebElement paymentBlock;
 
     @FindBy(id = "summary_products_quantity")
@@ -99,25 +99,71 @@ public class CheckOutPage extends BasePage {
         return getActions().isElementDisplayed(emptyCart);
     }
 
-    public boolean purchase() {
-        checkOutBtn.click();
+    public void clickCheckOutBtn() {
+        getActions().click(checkOutBtn);
+    }
+
+    public void fillEmailField() {
         emailField.sendKeys(LOGIN);
+    }
+
+    public void fillPasswordField() {
         passwordField.sendKeys(PASSWORD);
-        signInButton.click();
+    }
+
+    public void clickSignInButton() {
+        getActions().click(signInButton);
+    }
+
+
+    public void fillFirstName() {
         firstName.sendKeys(FIRSTNAME);
+    }
+
+    public void fillLastName() {
         lastname.sendKeys(LASTNAME);
+    }
+
+    public void fillAddress() {
         address1.sendKeys(ADDRESS1);
+    }
+    public void fillCity() {
         city.sendKeys(CITY);
+    }
+    public void fillPostcode() {
         postcode.sendKeys(POSTCODE);
+    }
+    public void fillPhone() {
         phone.sendKeys(PHONE);
+    }
+    public void fillMobilePhone() {
         phone_mobile.sendKeys(PHONEMOBILE);
+    }
+
+    public void selectState() {
         Select state = new Select(driver.findElement(By.id("id_state")));
         state.selectByIndex(1);
+    }
+
+    public void fillAddressTitle() {
         other.sendKeys(OTHER);
-        saveBtn.click();
-        proceedToCheckOutBtn.click();
-        termsOfServiceCheckbox.click();
-        completeOrder.click();
+    }
+
+    public void clickSaveBtn() {
+        getActions().click(saveBtn);
+    }
+    public void clickProceedToCheckOutBtn() {
+        getActions().click(proceedToCheckOutBtn);
+
+    }
+    public void clickTermsOfServiceCheckbox() {
+        getActions().click(termsOfServiceCheckbox);
+    }
+    public void clickCompleteOrder() {
+        getActions().click(completeOrder);
+    }
+
+    public boolean purchase() {
         return paymentBlock.getText().contains("No payment modules have been installed"); //seems bug on the app
     }
 }
