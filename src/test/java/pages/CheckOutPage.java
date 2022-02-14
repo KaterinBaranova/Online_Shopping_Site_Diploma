@@ -1,14 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-import enums.ColumnName;
-
-import java.util.List;
 
 import static tests.BaseTest.*;
 
@@ -75,6 +71,12 @@ public class CheckOutPage extends BasePage {
     @FindBy(name = "processAddress")
     private WebElement proceedToCheckOutBtn;
 
+    @FindBy(className ="icon-plus")
+    private WebElement plusQuantity;
+
+    @FindBy(className ="icon-minus")
+    private WebElement minusQuantity;
+
 
     public CheckOutPage(WebDriver driver) {
         super(driver);
@@ -85,33 +87,12 @@ public class CheckOutPage extends BasePage {
         return Integer.parseInt(String.valueOf(itemsInCart.getText().charAt(0)));
     }
 
-    private WebElement getItem(String itemName) {
-        List<WebElement> allRows = cartTable.findElements(By.cssSelector("[class*='cart_item'"));
-        for (WebElement row : allRows) {
-            if (row.findElement(By.cssSelector("td.cart_description > p > a")).getText().contains(itemName)) {
-                return row.findElement(By.className(ColumnName.QTY.columnName));
-            }
-        }
-        throw new NoSuchElementException("Unable to locate {" + itemName + "} wishlist");
+    public void pressIncreaseQuantity() {
+        getActions().click(plusQuantity);
     }
 
-
-    public void pressIncreaseQuantity(String itemName) {
-        String originalText = itemsInCart.getText();
-        WebElement quantity = getItem(itemName);
-        getActions().click(quantity.findElement(By.className("icon-plus")));
-        getActions().isElementTextChanged(itemsInCart, originalText);
-    }
-
-
-    public void pressDecreaseQuantity(String itemName) {
-        String originalText = itemsInCart.getText();
-        WebElement quantity = getItem(itemName);
-        int originalQuantity = Integer.parseInt(quantity.findElement(By.tagName("input")).getAttribute("value"));
-        getActions().click(quantity.findElement(By.className("icon-minus")));
-        if (originalQuantity != 1) {
-            getActions().isElementTextChanged(itemsInCart, originalText);
-        }
+    public void pressDecreaseQuantity() {
+        getActions().click(minusQuantity);
     }
 
     public boolean isCartEmpty() {
