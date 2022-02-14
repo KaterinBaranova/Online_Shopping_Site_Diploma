@@ -31,7 +31,6 @@ public class WishlistPage extends BasePage{
     }
 
     public boolean isWishlistPresent(String wishlistName) {
-        getActions().isElementDisplayed(wishlistTable);
         return getCell(wishlistName) != null;
     }
 

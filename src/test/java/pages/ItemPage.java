@@ -51,7 +51,6 @@ public class ItemPage extends BasePage {
 
     public void clickAddToCart() {
         getActions().click(addToCartButton);
-        getActions().isElementDisplayed(proceedToCheckoutButton);
     }
 
     public void clickAddToWishlist() {
@@ -108,11 +107,10 @@ public class ItemPage extends BasePage {
 
     public void closeCartFrame() {
         getActions().click(closeCartFrame);
-        getActions().isElementNotDisplayed(cartFrame);
     }
 
-    public CheckOutPage clickCheckout() {
+    public void proceedToCheckoutButton() {
         getActions().click(proceedToCheckoutButton);
-        return new CheckOutPage(driver);
     }
+
 }

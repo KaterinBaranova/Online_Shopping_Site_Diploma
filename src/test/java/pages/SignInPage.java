@@ -7,9 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends BasePage{
 
-
-    public static final String SIGNIN_URL = "http://prestashop.qatestlab.com.ua/en/authentication?back=my-account";
-
     @FindBy(id = "email")
     private WebElement emailField;
 
@@ -67,7 +64,6 @@ public class SignInPage extends BasePage{
 
     public WishlistPage openWishListPage() {
         getActions().click(wishListButton);
-        getActions().isPageReady();
         return new WishlistPage(driver);
     }
 }

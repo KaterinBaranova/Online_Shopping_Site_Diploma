@@ -83,8 +83,11 @@ public class CheckOutPage extends BasePage {
     }
 
     public int getItemsInCart() {
-        getActions().isElementDisplayed(itemsInCart);
         return Integer.parseInt(String.valueOf(itemsInCart.getText().charAt(0)));
+    }
+
+    public boolean isCartEmpty() {
+        return getActions().isElementDisplayed(emptyCart);
     }
 
     public void pressIncreaseQuantity() {
@@ -93,10 +96,6 @@ public class CheckOutPage extends BasePage {
 
     public void pressDecreaseQuantity() {
         getActions().click(minusQuantity);
-    }
-
-    public boolean isCartEmpty() {
-        return getActions().isElementDisplayed(emptyCart);
     }
 
     public void clickCheckOutBtn() {

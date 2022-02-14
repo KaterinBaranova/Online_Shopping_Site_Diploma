@@ -1,11 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 
 import java.util.List;
 
@@ -26,16 +24,6 @@ public class CartHoverPage extends BasePage {
 
     public CartHoverPage(WebDriver driver) {
         super(driver);
-    }
-
-    private WebElement getCartHoverItem(String productName) {
-        List<WebElement> cartList = getCartItems();
-        for (WebElement cartItem : cartList) {
-            if (cartItem.findElement(By.cssSelector("[title]")).getAttribute("title").contains(productName)) {
-                return cartItem;
-            }
-        }
-        throw new NoSuchElementException("Unable to locate {" + productName + "} product in cart");
     }
 
     public int getCartHoverNumberInCart() {
