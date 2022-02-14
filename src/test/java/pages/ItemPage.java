@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
+import static tests.BaseTest.ITEM_URL;
+
 public class ItemPage extends BasePage {
 
     @FindBy(id = "layer_cart")
@@ -100,8 +102,8 @@ public class ItemPage extends BasePage {
         return getActions().isElementDisplayed(fancyBox);
     }
 
-    public String getUrl() {
-        return getActions().getCurrentUrl();
+    public void open() {
+        driver.get(ITEM_URL);
     }
 
     public void closeCartFrame() {

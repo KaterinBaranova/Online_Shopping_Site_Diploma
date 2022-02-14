@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ItemPage;
 
@@ -8,18 +9,23 @@ import static org.testng.Assert.assertEquals;
 
 public class ItemTest extends BaseTest {
 
+    private ItemPage itemPage;
+
+
+    @BeforeMethod
+    public void navigate() {
+        itemPage = new ItemPage (driver);
+        itemPage.open();
+    }
+
     @Test
     public void addItemToCartTest() {
-        ItemPage itemPage = new ItemPage(driver);
-        driver.get(ITEM_URL);
         itemPage.clickAddToCart();
         assertTrue(itemPage.isCheckoutFrameDisplayed(), "Checkout popup was not displayed");
     }
 
     @Test
     public void addSeveralItemsToCartTest() {
-        ItemPage itemPage = new ItemPage(driver);
-        driver.get(ITEM_URL);
         itemPage.setQuantity(3);
         itemPage.setSize("M");
         itemPage.setColor("Orange");
@@ -31,8 +37,6 @@ public class ItemTest extends BaseTest {
 
     @Test
     public void selectColorTest() {
-        ItemPage itemPage = new ItemPage(driver);
-        driver.get(ITEM_URL);
         itemPage.setColor("Blue");
         itemPage.clickAddToCart();
         assertEquals(itemPage.getColorFromCartFrame(), "Blue", "Color doesn't match to values in the cart frame");

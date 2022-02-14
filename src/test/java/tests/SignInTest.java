@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.SignInPage;
 
@@ -8,14 +9,20 @@ import static org.testng.Assert.assertTrue;
 
 public class SignInTest extends BaseTest {
 
+    private SignInPage signInPage;
+
+
+    @BeforeMethod
+    public void navigate() {
+        signInPage = new SignInPage (driver);
+    }
+
     private final static String INVALID_USERNAME = "Katee1@test2.com";
     private final static String INVALID_PASSWORD = "1234";
 
 
     @Test
     public void signInPositiveTest() {
-
-        SignInPage signInPage = new SignInPage(driver);
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         assertTrue(signInPage.isSignOutLinkDisplayed(), "Sign out link is not displayed on the page");
@@ -23,9 +30,7 @@ public class SignInTest extends BaseTest {
 
     @Test
     public void signInWithEmptyLoginTest() {
-
         String expected_error_message = "An email address required.";
-        SignInPage signInPage = new SignInPage(driver);
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(" ", PASSWORD);
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
@@ -33,9 +38,7 @@ public class SignInTest extends BaseTest {
 
     @Test
     public void signInWithEmptyPasswordTest() {
-
         String expected_error_message = "Password is required.";
-        SignInPage signInPage = new SignInPage(driver);
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, " ");
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
@@ -43,9 +46,7 @@ public class SignInTest extends BaseTest {
 
     @Test
     public void signInWithInvalidCredentials() {
-
         String expected_error_message = "Authentication failed.";
-        SignInPage signInPage = new SignInPage(driver);
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(INVALID_USERNAME, INVALID_PASSWORD);
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
@@ -53,8 +54,6 @@ public class SignInTest extends BaseTest {
 
     @Test
     public void signOut() {
-
-        SignInPage signInPage = new SignInPage(driver);
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         signInPage.signOut();
