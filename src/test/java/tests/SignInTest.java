@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.SignInPage;
 
@@ -11,6 +12,14 @@ public class SignInTest extends BaseTest {
 
     private SignInPage signInPage;
 
+    @DataProvider(name = "Inputs for negative tests")
+    public Object[][] inputForNegativeTests() {
+        return new Object[][]{
+                {"", PASSWORD,"An email address required." },
+                {LOGIN, "", "Password is required."},
+                {INVALID_USERNAME, INVALID_PASSWORD, "Authentication failed."},
+        };
+    }
 
     @BeforeMethod
     public void navigate() {
@@ -28,28 +37,11 @@ public class SignInTest extends BaseTest {
         assertTrue(signInPage.isSignOutLinkDisplayed(), "Sign out link is not displayed on the page");
     }
 
-    @Test(description = "Login with empty email field", groups = {"Regression Test"})
-    public void signInWithEmptyLoginTest() {
-        String expected_error_message = "An email address required.";
+    @Test(description = "Login with empty email field/ with empty password / with invalid credentials",groups = {"Regression Test"},dataProvider = "Inputs for negative tests")
+    public void negativeSignInTests(String email, String password, String expectedErrorMessage) {
         signInPage.clickSignInLink();
-        signInPage.signInWithCredentials(" ", PASSWORD);
-        Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
-    }
-
-    @Test(description = "Login with empty password field", groups = {"Regression Test"})
-    public void signInWithEmptyPasswordTest() {
-        String expected_error_message = "Password is required.";
-        signInPage.clickSignInLink();
-        signInPage.signInWithCredentials(LOGIN, " ");
-        Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
-    }
-
-    @Test(description = "Login with invalid credentials", groups = {"Smoke Test"})
-    public void signInWithInvalidCredentialsTest() {
-        String expected_error_message = "Authentication failed.";
-        signInPage.clickSignInLink();
-        signInPage.signInWithCredentials(INVALID_USERNAME, INVALID_PASSWORD);
-        Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
+        signInPage.signInWithCredentials(email,password);
+        Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expectedErrorMessage);
     }
 
     @Test(description = "User is able to log out from app", groups = {"Smoke Test"})
