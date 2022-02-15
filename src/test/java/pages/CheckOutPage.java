@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import static tests.BaseTest.*;
-
 
 public class CheckOutPage extends BasePage {
 
