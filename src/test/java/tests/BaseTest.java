@@ -16,14 +16,7 @@ public abstract class BaseTest {
     public final static String PASSWORD = "Admin123";
     public static final String BASE_URL = "http://prestashop.qatestlab.com.ua/en/";
     public static final String ITEM_URL = "http://prestashop.qatestlab.com.ua/en/tshirts/1-faded-short-sleeve-tshirts.html";
-    public final static String FIRSTNAME = "Kate";
-    public final static String LASTNAME = "Sh";
-    public final static String ADDRESS1 ="123 Melrose street";
-    public final static String CITY = "New York";
-    public final static String POSTCODE = "12345";
-    public final static String PHONE = "1234567";
-    public final static String PHONEMOBILE = "1234567";
-    public final static String OTHER= "some other text";
+
 
     protected static WebDriver driver;
 

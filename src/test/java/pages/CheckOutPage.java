@@ -102,12 +102,12 @@ public class CheckOutPage extends BasePage {
         getActions().click(checkOutBtn);
     }
 
-    public void fillEmailField() {
-        emailField.sendKeys(LOGIN);
+    public void fillEmailField( String Login) {
+        emailField.sendKeys(Login);
     }
 
-    public void fillPasswordField() {
-        passwordField.sendKeys(PASSWORD);
+    public void fillPasswordField(String Password) {
+        passwordField.sendKeys(Password);
     }
 
     public void clickSignInButton() {
@@ -115,28 +115,28 @@ public class CheckOutPage extends BasePage {
     }
 
 
-    public void fillFirstName() {
-        firstName.sendKeys(FIRSTNAME);
+    public void fillFirstName(String FirstName) {
+        firstName.sendKeys(FirstName);
     }
 
-    public void fillLastName() {
-        lastname.sendKeys(LASTNAME);
+    public void fillLastName(String LastName) {
+        lastname.sendKeys(LastName);
     }
 
-    public void fillAddress() {
-        address1.sendKeys(ADDRESS1);
+    public void fillAddress(String Address) {
+        address1.sendKeys(Address);
     }
-    public void fillCity() {
-        city.sendKeys(CITY);
+    public void fillCity(String City) {
+        city.sendKeys(City);
     }
-    public void fillPostcode() {
-        postcode.sendKeys(POSTCODE);
+    public void fillPostcode(String Postcode) {
+        postcode.sendKeys(Postcode);
     }
-    public void fillPhone() {
-        phone.sendKeys(PHONE);
+    public void fillPhone(String Phone) {
+        phone.sendKeys(Phone);
     }
-    public void fillMobilePhone() {
-        phone_mobile.sendKeys(PHONEMOBILE);
+    public void fillMobilePhone(String PhoneMobile) {
+        phone_mobile.sendKeys(PhoneMobile);
     }
 
     public void selectState() {
@@ -144,8 +144,8 @@ public class CheckOutPage extends BasePage {
         state.selectByIndex(1);
     }
 
-    public void fillAddressTitle() {
-        other.sendKeys(OTHER);
+    public void fillAddressTitle(String Other) {
+        other.sendKeys(Other);
     }
 
     public void clickSaveBtn() {
@@ -162,7 +162,7 @@ public class CheckOutPage extends BasePage {
         getActions().click(completeOrder);
     }
 
-    public boolean purchase() {
-        return paymentBlock.getText().contains("No payment modules have been installed"); //seems bug on the app
+    public boolean isPaymentBlockMessageDisplayed() {
+        return paymentBlock.isDisplayed();
     }
 }

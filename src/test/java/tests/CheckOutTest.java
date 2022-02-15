@@ -10,6 +10,15 @@ import static org.testng.Assert.*;
 
 public class CheckOutTest extends BaseTest {
 
+    public final static String FIRSTNAME = "Kate";
+    public final static String LASTNAME = "Sh";
+    public final static String ADDRESS1 ="123 Melrose street";
+    public final static String CITY = "New York";
+    public final static String POSTCODE = "12345";
+    public final static String PHONE = "1234567";
+    public final static String PHONEMOBILE = "1234567";
+    public final static String OTHER= "some other text";
+
     private ItemPage itemPage;
     private CartHoverPage cartHoverPage;
     private CheckOutPage checkOutPage;
@@ -47,26 +56,27 @@ public class CheckOutTest extends BaseTest {
 
    @Test
    // Note user is not able to buy as there is an error on the app "No payment modules have been installed."
-   public void purchaseItemsFromCartTest() {
+   public void purchaseItemsFromCartForNotAuthorizedUserTest() {
+       String expected_message = "No payment modules have been installed.";
         itemPage.clickAddToCart();
         itemPage.proceedToCheckoutButton();
         checkOutPage.clickCheckOutBtn();
-        checkOutPage.fillEmailField();
-        checkOutPage.fillPasswordField();
+        checkOutPage.fillEmailField(LOGIN);
+        checkOutPage.fillPasswordField(PASSWORD);
         checkOutPage.clickSignInButton();
-        checkOutPage.fillFirstName();
-        checkOutPage.fillLastName();
-        checkOutPage.fillAddress();
-        checkOutPage.fillCity();
-        checkOutPage.fillPostcode();
-        checkOutPage.fillPhone();
-        checkOutPage.fillMobilePhone();
+        checkOutPage.fillFirstName(FIRSTNAME);
+        checkOutPage.fillLastName(LASTNAME);
+        checkOutPage.fillAddress(ADDRESS1);
+        checkOutPage.fillCity(CITY);
+        checkOutPage.fillPostcode(POSTCODE);
+        checkOutPage.fillPhone(PHONE);
+        checkOutPage.fillMobilePhone(PHONEMOBILE);
         checkOutPage.selectState();
-        checkOutPage.fillAddressTitle();
+        checkOutPage.fillAddressTitle(OTHER);
         checkOutPage.clickSaveBtn();
         checkOutPage.clickProceedToCheckOutBtn();
         checkOutPage.clickTermsOfServiceCheckbox();
         checkOutPage.clickCompleteOrder();
-        assertTrue(checkOutPage.purchase(), "Order complete.");
+        assertTrue(checkOutPage.isPaymentBlockMessageDisplayed(),expected_message);
     }
 }
