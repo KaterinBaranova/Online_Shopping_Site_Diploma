@@ -18,13 +18,13 @@ public class ItemTest extends BaseTest {
         itemPage.open();
     }
 
-    @Test
+    @Test (description = "User is able to check out from cart hover", groups = {"Smoke Test"})
     public void addItemToCartTest() {
         itemPage.clickAddToCart();
         assertTrue(itemPage.isCheckoutFrameDisplayed(), "Checkout popup was not displayed");
     }
 
-    @Test
+    @Test(description = "User is able to add several items to cart", groups = {"Regression Test"})
     public void addSeveralItemsToCartTest() {
         itemPage.setQuantity(3);
         itemPage.setSize("M");
@@ -35,7 +35,7 @@ public class ItemTest extends BaseTest {
         assertEquals(itemPage.getColorFromCartFrame(), "Orange", "Color doesn't match to values in the cart frame");
     }
 
-    @Test
+    @Test(description = "User is able to select item color", groups = {"Regression Test"})
     public void selectColorTest() {
         itemPage.setColor("Blue");
         itemPage.clickAddToCart();

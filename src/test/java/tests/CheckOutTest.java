@@ -31,7 +31,7 @@ public class CheckOutTest extends BaseTest {
         checkOutPage = new CheckOutPage(driver);
     }
 
-    @Test
+    @Test(description = "User is able to change items quantity on cart ", groups = {"Regression Test"})
     public void changeQuantityInCartTest() {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
@@ -43,7 +43,7 @@ public class CheckOutTest extends BaseTest {
         assertEquals(checkOutPage.getItemsInCart(), 2, "Incorrect number of items in cart");
     }
 
-    @Test
+    @Test(description = "User is able to remove items from cart", groups = {"Regression Test"})
     public void removeLastItemFromCartTest() {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
@@ -54,7 +54,7 @@ public class CheckOutTest extends BaseTest {
 
     }
 
-   @Test
+   @Test (description = "Unauthorized user is able to proceed to payment block", groups = {"Smoke Test"})
    // Note user is not able to buy as there is an error on the app "No payment modules have been installed."
    public void purchaseItemsFromCartForNotAuthorizedUserTest() {
        String expected_message = "No payment modules have been installed.";

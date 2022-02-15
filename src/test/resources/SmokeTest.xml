@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test" parallel="tests" thread-count="2">
+    <test name="signInPositiveTest">
+        <groups>
+            <run>
+                <include name="slow" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.SignInTest" />
+        </classes>
+    </test> <!-- Test -->
+    <test name="signInWithInvalidCredentialsTest">
+        <classes>
+            <class name="tests.SignInTest" />
+        </classes>
+    </test> <!-- Test -->
+    <test name="signOutTest">
+        <classes>
+            <class name="tests.SignInTest" />
+        </classes>
+    </test>
+    <test name="checkOutFromHoverTest">
+        <classes>
+            <class name="tests.CartHoverTest" />
+        </classes>
+    </test>
+    <test name="createAndUpdateWishlist">
+        <classes>
+            <class name="tests.WishListTest" />
+        </classes>
+    </test>
+    <test name="purchaseItemsFromCartForNotAuthorizedUserTest">
+        <classes>
+            <class name="tests.CheckOutTest" />
+        </classes>
+    </test>
+    <test name="addItemToCartTest">
+        <classes>
+            <class name="tests.ItemTest" />
+        </classes>
+    </test>
+</suite>

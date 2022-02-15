@@ -24,7 +24,7 @@ public class WishListTest extends BaseTest {
         wishlistPage = new WishlistPage(driver);
     }
 
-    @Test
+    @Test(description = "User is able to create and update wishlist", groups = {"Smoke Test"})
     public void createAndUpdateWishlist() {
         String wishlistName = String.valueOf(randomUUID()).substring(0, 8);
 

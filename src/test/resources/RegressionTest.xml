@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test" parallel="tests" thread-count="2">
+    <test name="signInWithEmptyLoginTest">
+        <groups>
+            <run>
+                <include name="slow" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.SignInTest" />
+        </classes>
+    </test> <!-- Test -->
+    <test name="signInWithEmptyPasswordTest">
+        <classes>
+            <class name="tests.SignInTest" />
+        </classes>
+    </test> <!-- Test -->
+    <test name="checkCountInHoverTest">
+        <classes>
+            <class name="tests.CartHoverTest" />
+        </classes>
+    </test>
+    <test name="removeItemFromHoverTest">
+        <classes>
+            <class name="tests.CartHoverTest" />
+        </classes>
+    </test>
+    <test name="changeQuantityInCartTest">
+        <classes>
+            <class name="tests.CheckOutTest" />
+        </classes>
+    </test>
+    <test name="removeLastItemFromCartTest">
+        <classes>
+            <class name="tests.CheckOutTest" />
+        </classes>
+    </test>
+    <test name="addSeveralItemsToCartTest">
+        <classes>
+            <class name="tests.ItemTest" />
+        </classes>
+    </test>
+    <test name="selectColorTest">
+        <classes>
+            <class name="tests.ItemTest" />
+        </classes>
+    </test>
+</suite>

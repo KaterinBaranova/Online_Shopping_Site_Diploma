@@ -23,14 +23,14 @@ public class CartHoverTest extends BaseTest {
         checkOutPage = new CheckOutPage(driver);
     }
 
-    @Test
+    @Test(description = "User is able to check items quantity from cart hover", groups = {"Regression Test"})
     public void checkCountInHoverTest() {
         assertEquals(cartHoverPage.getCartHoverNumberInCart(), 0, "The number of items in the cart for a new user is more than zero");
         itemPage.clickAddToCart();
         assertEquals(cartHoverPage.getCartHoverNumberInCart(), 1, "The number of items in the cart is increased after adding an item to it");
     }
 
-    @Test
+    @Test(description = "User is able to remove items from cart hover", groups = {"Regression Test"})
     public void removeItemFromHoverTest() {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
@@ -38,7 +38,7 @@ public class CartHoverTest extends BaseTest {
         assertEquals(cartHoverPage.getCartHoverNumberInCart(), 1, "The number of items in the cart for a new user is more than zero");
     }
 
-    @Test
+    @Test (description = "User is able to check out from cart hover", groups = {"Smoke Test"})
     public void checkOutFromHoverTest() {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();

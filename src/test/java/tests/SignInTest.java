@@ -21,14 +21,14 @@ public class SignInTest extends BaseTest {
     private final static String INVALID_PASSWORD = "1234";
 
 
-    @Test
+    @Test(description = "Login with valid credentials", groups = {"Smoke Test"})
     public void signInPositiveTest() {
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         assertTrue(signInPage.isSignOutLinkDisplayed(), "Sign out link is not displayed on the page");
     }
 
-    @Test
+    @Test(description = "Login with empty email field", groups = {"Regression Test"})
     public void signInWithEmptyLoginTest() {
         String expected_error_message = "An email address required.";
         signInPage.clickSignInLink();
@@ -36,7 +36,7 @@ public class SignInTest extends BaseTest {
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
 
-    @Test
+    @Test(description = "Login with empty password field", groups = {"Regression Test"})
     public void signInWithEmptyPasswordTest() {
         String expected_error_message = "Password is required.";
         signInPage.clickSignInLink();
@@ -44,16 +44,16 @@ public class SignInTest extends BaseTest {
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
 
-    @Test
-    public void signInWithInvalidCredentials() {
+    @Test(description = "Login with invalid credentials", groups = {"Smoke Test"})
+    public void signInWithInvalidCredentialsTest() {
         String expected_error_message = "Authentication failed.";
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(INVALID_USERNAME, INVALID_PASSWORD);
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), expected_error_message);
     }
 
-    @Test
-    public void signOut() {
+    @Test(description = "User is able to log out from app", groups = {"Smoke Test"})
+    public void signOutTest() {
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         signInPage.signOut();
