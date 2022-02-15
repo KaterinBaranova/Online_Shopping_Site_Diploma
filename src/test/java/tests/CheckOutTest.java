@@ -35,7 +35,7 @@ public class CheckOutTest extends BaseTest {
     public void changeQuantityInCartTest() {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
-        cartHoverPage.checkOut();
+        cartHoverPage.clickCheckOutBtn();
         checkOutPage.pressIncreaseQuantity();
         checkOutPage.pressIncreaseQuantity();
         checkOutPage.pressDecreaseQuantity();
@@ -47,10 +47,10 @@ public class CheckOutTest extends BaseTest {
     public void removeLastItemFromCartTest() {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
-        cartHoverPage.checkOut();
+        cartHoverPage.clickCheckOutBtn();
         checkOutPage.pressDecreaseQuantity();
         // Note: there is a bug on the app
-        assertTrue(checkOutPage.isCartEmpty(), "The cart was not empty");
+        assertTrue(checkOutPage.isCartEmptyMessageDisplayed(), "The cart was not empty");
 
     }
 

@@ -26,12 +26,13 @@ public class WishListTest extends BaseTest {
 
     @Test
     public void createAndUpdateWishlist() {
+        String wishlistName = String.valueOf(randomUUID()).substring(0, 8);
+
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         // create wishlist test
         signInPage.openWishListPage();
-        String wishlistName = String.valueOf(randomUUID()).substring(0, 8);
-        wishlistPage.create(wishlistName);
+        wishlistPage.createNewWishlist(wishlistName);
         assertTrue(wishlistPage.isWishlistPresent(wishlistName), "Specified Wishlist was not found");
         // update wishlist test
         itemPage.open();

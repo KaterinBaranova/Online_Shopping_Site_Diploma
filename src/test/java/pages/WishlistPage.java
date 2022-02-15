@@ -25,7 +25,7 @@ public class WishlistPage extends BasePage{
         super(driver);
     }
 
-    public void create(String wishlistName) {
+    public void createNewWishlist(String wishlistName) {
         getActions().type(newWishlistNameField, wishlistName);
         getActions().click(submitNewWishlistButton);
     }

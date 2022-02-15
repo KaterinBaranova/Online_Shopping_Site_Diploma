@@ -34,12 +34,12 @@ public class CartHoverPage extends BasePage {
         return cartHover.findElements(By.cssSelector("dt[class*=\"item\"]"));
     }
 
-    public void checkOut() {
+    public void clickCheckOutBtn() {
         getActions().hover().moveToElement(enableHoverElement).build().perform();
         getActions().click(checkOutButton);
     }
 
-    public void removeFromHover() {
+    public void clickRemoveFromHover() {
         getActions().hover().moveToElement(enableHoverElement).build().perform();
         getActions().click(removeFromHover);
     }

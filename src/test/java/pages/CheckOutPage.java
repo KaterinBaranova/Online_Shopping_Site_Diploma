@@ -84,7 +84,7 @@ public class CheckOutPage extends BasePage {
         return Integer.parseInt(String.valueOf(itemsInCart.getText().charAt(0)));
     }
 
-    public boolean isCartEmpty() {
+    public boolean isCartEmptyMessageDisplayed() {
         return getActions().isElementDisplayed(emptyCart);
     }
 
