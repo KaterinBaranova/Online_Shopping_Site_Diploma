@@ -32,9 +32,7 @@ public class CheckOutTest extends BaseTest {
 
     @Test(description = "User is able to change items quantity on cart ", groups = {"Regression Test"})
     public void changeQuantityInCartTest() {
-        String productName = "Faded Short Sleeve T-shirts";
-
-        itemPage.openItem(productName);
+        itemPage.openItem(PRODUCT_NAME);
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
@@ -47,9 +45,7 @@ public class CheckOutTest extends BaseTest {
 
     @Test(description = "User is able to remove items from cart", groups = {"Regression Test"})
     public void removeLastItemFromCartTest() {
-        String productName = "Faded Short Sleeve T-shirts";
-
-        itemPage.openItem(productName);
+        itemPage.openItem(PRODUCT_NAME);
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
@@ -63,9 +59,8 @@ public class CheckOutTest extends BaseTest {
    // Note user is not able to buy as there is an error on the app "No payment modules have been installed."
    public void purchaseItemsFromCartForNotAuthorizedUserTest() {
        String expected_message = "No payment modules have been installed.";
-       String productName = "Faded Short Sleeve T-shirts";
 
-       itemPage.openItem(productName);
+       itemPage.openItem(PRODUCT_NAME);
        itemPage.clickAddToCart();
        itemPage.proceedToCheckoutButton();
        checkOutPage.clickCheckOutBtn();

@@ -15,6 +15,7 @@ public abstract class BaseTest {
     public final static String LOGIN = "katsssru@gmail.com";
     public final static String PASSWORD = "Admin123";
     public static final String BASE_URL = "http://prestashop.qatestlab.com.ua/en/";
+    public static final String PRODUCT_NAME = "Faded Short Sleeve T-shirts";
 
     protected static WebDriver driver;
 

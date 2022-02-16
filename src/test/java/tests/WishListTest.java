@@ -25,7 +25,6 @@ public class WishListTest extends BaseTest {
 
     @Test(description = "User is able to create and update wishlist", groups = {"Smoke Test"})
     public void createAndUpdateWishlist() {
-        String productName = "Faded Short Sleeve T-shirts";
         String wishlistName = String.valueOf(randomUUID()).substring(0, 8);
 
         signInPage.clickSignInLink();
@@ -35,7 +34,7 @@ public class WishListTest extends BaseTest {
         wishlistPage.createNewWishlist(wishlistName);
         assertTrue(wishlistPage.isWishlistPresent(wishlistName), "Specified Wishlist was not found");
         // update wishlist test
-        itemPage.openItem(productName);
+        itemPage.openItem(PRODUCT_NAME);
         itemPage.clickAddToWishlist();
         assertTrue(itemPage.isFancyBoxTextDisplayed(), "Added to your wishlist.");
     }
