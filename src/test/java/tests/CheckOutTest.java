@@ -26,13 +26,15 @@ public class CheckOutTest extends BaseTest {
     @BeforeMethod
     public void navigate() {
         itemPage = new ItemPage (driver);
-        itemPage.open();
         cartHoverPage = new CartHoverPage(driver);
         checkOutPage = new CheckOutPage(driver);
     }
 
     @Test(description = "User is able to change items quantity on cart ", groups = {"Regression Test"})
     public void changeQuantityInCartTest() {
+        String productName = "Faded Short Sleeve T-shirts";
+
+        itemPage.openItem(productName);
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
@@ -45,6 +47,9 @@ public class CheckOutTest extends BaseTest {
 
     @Test(description = "User is able to remove items from cart", groups = {"Regression Test"})
     public void removeLastItemFromCartTest() {
+        String productName = "Faded Short Sleeve T-shirts";
+
+        itemPage.openItem(productName);
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
@@ -58,25 +63,28 @@ public class CheckOutTest extends BaseTest {
    // Note user is not able to buy as there is an error on the app "No payment modules have been installed."
    public void purchaseItemsFromCartForNotAuthorizedUserTest() {
        String expected_message = "No payment modules have been installed.";
-        itemPage.clickAddToCart();
-        itemPage.proceedToCheckoutButton();
-        checkOutPage.clickCheckOutBtn();
-        checkOutPage.fillEmailField(LOGIN);
-        checkOutPage.fillPasswordField(PASSWORD);
-        checkOutPage.clickSignInButton();
-        checkOutPage.fillFirstName(FIRSTNAME);
-        checkOutPage.fillLastName(LASTNAME);
-        checkOutPage.fillAddress(ADDRESS1);
-        checkOutPage.fillCity(CITY);
-        checkOutPage.fillPostcode(POSTCODE);
-        checkOutPage.fillPhone(PHONE);
-        checkOutPage.fillMobilePhone(PHONEMOBILE);
-        checkOutPage.selectState();
-        checkOutPage.fillAddressTitle(OTHER);
-        checkOutPage.clickSaveBtn();
-        checkOutPage.clickProceedToCheckOutBtn();
-        checkOutPage.clickTermsOfServiceCheckbox();
-        checkOutPage.clickCompleteOrder();
-        assertTrue(checkOutPage.isPaymentBlockMessageDisplayed(),expected_message);
+       String productName = "Faded Short Sleeve T-shirts";
+
+       itemPage.openItem(productName);
+       itemPage.clickAddToCart();
+       itemPage.proceedToCheckoutButton();
+       checkOutPage.clickCheckOutBtn();
+       checkOutPage.fillEmailField(LOGIN);
+       checkOutPage.fillPasswordField(PASSWORD);
+       checkOutPage.clickSignInButton();
+       checkOutPage.fillFirstName(FIRSTNAME);
+       checkOutPage.fillLastName(LASTNAME);
+       checkOutPage.fillAddress(ADDRESS1);
+       checkOutPage.fillCity(CITY);
+       checkOutPage.fillPostcode(POSTCODE);
+       checkOutPage.fillPhone(PHONE);
+       checkOutPage.fillMobilePhone(PHONEMOBILE);
+       checkOutPage.selectState();
+       checkOutPage.fillAddressTitle(OTHER);
+       checkOutPage.clickSaveBtn();
+       checkOutPage.clickProceedToCheckOutBtn();
+       checkOutPage.clickTermsOfServiceCheckbox();
+       checkOutPage.clickCompleteOrder();
+       assertTrue(checkOutPage.isPaymentBlockMessageDisplayed(), expected_message);
     }
 }

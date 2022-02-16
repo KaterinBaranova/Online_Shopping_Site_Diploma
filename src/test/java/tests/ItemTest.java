@@ -15,17 +15,23 @@ public class ItemTest extends BaseTest {
     @BeforeMethod
     public void navigate() {
         itemPage = new ItemPage (driver);
-        itemPage.open();
+
     }
 
     @Test (description = "User is able to check out from cart hover", groups = {"Smoke Test"})
     public void addItemToCartTest() {
+        String productName = "Faded Short Sleeve T-shirts";
+
+        itemPage.openItem(productName);
         itemPage.clickAddToCart();
         assertTrue(itemPage.isCheckoutFrameDisplayed(), "Checkout popup was not displayed");
     }
 
     @Test(description = "User is able to add several items to cart", groups = {"Regression Test"})
     public void addSeveralItemsToCartTest() {
+        String productName = "Faded Short Sleeve T-shirts";
+
+        itemPage.openItem(productName);
         itemPage.setQuantity(3);
         itemPage.setSize("M");
         itemPage.setColor("Orange");
@@ -37,6 +43,9 @@ public class ItemTest extends BaseTest {
 
     @Test(description = "User is able to select item color", groups = {"Regression Test"})
     public void selectColorTest() {
+        String productName = "Faded Short Sleeve T-shirts";
+
+        itemPage.openItem(productName);
         itemPage.setColor("Blue");
         itemPage.clickAddToCart();
         assertEquals(itemPage.getColorFromCartFrame(), "Blue", "Color doesn't match to values in the cart frame");
