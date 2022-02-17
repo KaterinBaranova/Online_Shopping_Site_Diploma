@@ -29,11 +29,8 @@ public class WishListTest extends BaseTest {
 
         signInPage.clickSignInLink();
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
-        // create wishlist test
         signInPage.openWishListPage();
         wishlistPage.createNewWishlist(wishlistName);
-        assertTrue(wishlistPage.isWishlistPresent(wishlistName), "Specified Wishlist was not found");
-        // update wishlist test
         itemPage.openItem(PRODUCT_NAME);
         itemPage.clickAddToWishlist();
         assertTrue(itemPage.isFancyBoxTextDisplayed(), "Added to your wishlist.");
