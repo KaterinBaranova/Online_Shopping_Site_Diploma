@@ -83,9 +83,9 @@ public class ItemPage extends BasePage {
 
     public void setColor(String color) {
         List<WebElement> colors = colorOptions.findElements(By.xpath(".//*"));
-        for (WebElement li : colors) {
-            if (li.getAttribute("title").equals(color)) {
-                getActions().click(li);
+        for (WebElement colorType : colors) {
+            if (colorType.getAttribute("title").equals(color)) {
+                getActions().click(colorType);
             }
         }
     }
