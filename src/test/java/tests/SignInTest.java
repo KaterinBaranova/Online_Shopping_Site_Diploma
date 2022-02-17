@@ -12,6 +12,9 @@ public class SignInTest extends BaseTest {
 
     private SignInPage signInPage;
 
+    private final static String INVALID_USERNAME = "Katee1@test2.com";
+    private final static String INVALID_PASSWORD = "1234";
+
     @DataProvider(name = "Inputs for negative tests")
     public Object[][] inputForNegativeTests() {
         return new Object[][]{
@@ -25,10 +28,6 @@ public class SignInTest extends BaseTest {
     public void navigate() {
         signInPage = new SignInPage (driver);
     }
-
-    private final static String INVALID_USERNAME = "Katee1@test2.com";
-    private final static String INVALID_PASSWORD = "1234";
-
 
     @Test(description = "Login with valid credentials", groups = {"Smoke Test"})
     public void signInPositiveTest() {
