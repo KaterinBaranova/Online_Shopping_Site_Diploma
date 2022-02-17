@@ -46,6 +46,6 @@ public class CartHoverTest extends BaseTest {
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
         assertEquals(checkOutPage.getItemsInCart(), 1, "Incorrect number of items in the cart");
-        // test failed there is a bug on the app
+        // test failed there is a bug on the app, and it shows "Your shopping cart contains: 2 product" but actually there is only one
     }
 }
