@@ -62,7 +62,7 @@ public class CheckOutTest extends BaseTest {
 
        itemPage.openItem(PRODUCT_NAME);
        itemPage.clickAddToCart();
-       itemPage.proceedToCheckoutButton();
+       itemPage.clickOnCheckoutButton();
        checkOutPage.clickCheckOutBtn();
        checkOutPage.fillEmailField(LOGIN);
        checkOutPage.fillPasswordField(PASSWORD);
