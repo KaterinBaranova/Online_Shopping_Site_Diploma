@@ -39,10 +39,10 @@ public class CheckOutPage extends BasePage {
     private WebElement signInButton;
 
     @FindBy(id = "firstname")
-    private WebElement firstName;
+    private WebElement firstNameFiled;
 
     @FindBy(id = "lastname")
-    private WebElement lastname;
+    private WebElement lastNameFiled;
 
     @FindBy(id = "address1")
     private WebElement address1;
@@ -102,12 +102,12 @@ public class CheckOutPage extends BasePage {
         getActions().click(checkOutBtn);
     }
 
-    public void fillEmailField( String Login) {
-        emailField.sendKeys(Login);
+    public void fillEmailField( String login) {
+        emailField.sendKeys(login);
     }
 
-    public void fillPasswordField(String Password) {
-        passwordField.sendKeys(Password);
+    public void fillPasswordField(String password) {
+        passwordField.sendKeys(password);
     }
 
     public void clickSignInButton() {
@@ -115,28 +115,28 @@ public class CheckOutPage extends BasePage {
     }
 
 
-    public void fillFirstName(String FirstName) {
-        firstName.sendKeys(FirstName);
+    public void fillFirstName(String firstName) {
+        firstNameFiled.sendKeys(firstName);
     }
 
-    public void fillLastName(String LastName) {
-        lastname.sendKeys(LastName);
+    public void fillLastName(String lastName) {
+        lastNameFiled.sendKeys(lastName);
     }
 
-    public void fillAddress(String Address) {
-        address1.sendKeys(Address);
+    public void fillAddress(String address) {
+        address1.sendKeys(address);
     }
-    public void fillCity(String City) {
-        city.sendKeys(City);
+    public void fillCity(String cityName) {
+        city.sendKeys(cityName);
     }
-    public void fillPostcode(String Postcode) {
-        postcode.sendKeys(Postcode);
+    public void fillPostcode(String postcodeNumber) {
+        postcode.sendKeys(postcodeNumber);
     }
-    public void fillPhone(String Phone) {
-        phone.sendKeys(Phone);
+    public void fillPhone(String phoneNumber) {
+        phone.sendKeys(phoneNumber);
     }
-    public void fillMobilePhone(String PhoneMobile) {
-        phone_mobile.sendKeys(PhoneMobile);
+    public void fillMobilePhone(String phoneMobile) {
+        phone_mobile.sendKeys(phoneMobile);
     }
 
     public void selectState(String stateName) {
