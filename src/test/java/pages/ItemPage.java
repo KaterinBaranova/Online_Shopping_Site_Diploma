@@ -67,7 +67,6 @@ public class ItemPage extends BasePage {
     }
 
     public int getQuantityFromCartFrame() {
-        getActions().isElementDisplayed(cartFrame);
         return Integer.parseInt(quantityInCartFrame.getText());
     }
 
@@ -77,7 +76,6 @@ public class ItemPage extends BasePage {
     }
 
     public String getSizeFromCartFrame() {
-        getActions().isElementDisplayed(cartFrame);
         return sizeAndColorInCartFrame.getText().substring(sizeAndColorInCartFrame.getText().length() - 1);
     }
 

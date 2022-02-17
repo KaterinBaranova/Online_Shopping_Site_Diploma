@@ -32,9 +32,10 @@ public class ItemTest extends BaseTest {
         itemPage.setSize("M");
         itemPage.setColor("Orange");
         itemPage.clickAddToCart();
+        assertEquals(itemPage.getColorFromCartFrame(), "Orange", "Color doesn't match to values in the cart frame");
         assertEquals(itemPage.getQuantityFromCartFrame(), 3, "Quantity doesn't match to values in the cart frame");
         assertEquals(itemPage.getSizeFromCartFrame(), "M", "Size doesn't match to values in the cart frame");
-        assertEquals(itemPage.getColorFromCartFrame(), "Orange", "Color doesn't match to values in the cart frame");
+
     }
 
     @Test(description = "User is able to select item color", groups = {"Regression Test"})
