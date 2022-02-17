@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +8,9 @@ import java.util.List;
 
 
 public class CartHoverPage extends BasePage {
+
+    @FindBy (css ="dt[class*=\"item\"]")
+    public List<WebElement> cartItem;
 
     @FindBy(className = "shopping_cart")
     private WebElement cartHover;
@@ -27,11 +29,7 @@ public class CartHoverPage extends BasePage {
     }
 
     public int getCartHoverNumberInCart() {
-        return getCartItems().size();
-    }
-
-    private List<WebElement> getCartItems() {
-        return cartHover.findElements(By.cssSelector("dt[class*=\"item\"]"));
+        return cartItem.size();
     }
 
     public void clickCheckOutBtn() {
