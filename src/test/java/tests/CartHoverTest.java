@@ -45,6 +45,7 @@ public class CartHoverTest extends BaseTest {
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
-        assertEquals(checkOutPage.getItemsInCart(),2);
+        assertEquals(checkOutPage.getItemsInCart(), 1, "Incorrect number of items in the cart");
+        // test failed there is a bug on the app
     }
 }

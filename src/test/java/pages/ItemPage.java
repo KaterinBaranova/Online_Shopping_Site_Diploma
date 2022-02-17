@@ -17,7 +17,7 @@ public class ItemPage extends BasePage {
     private WebElement addToCartButton;
 
     @FindBy(css = "a[title='Proceed to checkout']")
-    private WebElement proceedToCheckoutButton;
+    private WebElement clickOnCheckoutButton;
 
     @FindBy(name = "qty")
     private WebElement quantityField;
@@ -103,8 +103,8 @@ public class ItemPage extends BasePage {
         getActions().click(closeCartFrame);
     }
 
-    public void proceedToCheckoutButton() {
-        getActions().click(proceedToCheckoutButton);
+    public void clickOnCheckoutButton() {
+        getActions().click(clickOnCheckoutButton);
     }
 
     public void openItem(String productName) {
