@@ -18,6 +18,7 @@ public class CheckOutTest extends BaseTest {
     public final static String PHONE = "1234567";
     public final static String PHONEMOBILE = "1234567";
     public final static String OTHER= "some other text";
+    public final static String STATE = "Texas";
 
     private ItemPage itemPage;
     private CartHoverPage cartHoverPage;
@@ -74,7 +75,7 @@ public class CheckOutTest extends BaseTest {
        checkOutPage.fillPostcode(POSTCODE);
        checkOutPage.fillPhone(PHONE);
        checkOutPage.fillMobilePhone(PHONEMOBILE);
-       checkOutPage.selectState();
+       checkOutPage.selectState(STATE);
        checkOutPage.fillAddressTitle(OTHER);
        checkOutPage.clickSaveBtn();
        checkOutPage.clickProceedToCheckOutBtn();

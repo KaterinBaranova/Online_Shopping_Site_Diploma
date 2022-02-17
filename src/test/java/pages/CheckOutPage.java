@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -75,6 +74,9 @@ public class CheckOutPage extends BasePage {
     @FindBy(className ="icon-minus")
     private WebElement minusQuantity;
 
+    @FindBy(id ="id_state")
+    private WebElement state;
+
 
     public CheckOutPage(WebDriver driver) {
         super(driver);
@@ -137,9 +139,9 @@ public class CheckOutPage extends BasePage {
         phone_mobile.sendKeys(PhoneMobile);
     }
 
-    public void selectState() {
-        Select state = new Select(driver.findElement(By.id("id_state")));
-        state.selectByIndex(1);
+    public void selectState(String stateName) {
+        Select stateField = new Select(state);
+        stateField.selectByVisibleText(stateName);
     }
 
     public void fillAddressTitle(String Other) {
