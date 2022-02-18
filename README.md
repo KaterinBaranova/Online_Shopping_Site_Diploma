@@ -40,6 +40,7 @@ https://github.com/KaterinBaranova/Online_Shopping_Site.git
 
 ### pages
 * BasePage
+* CatalogPage
 * CartHoverPage
 * CheckOutPage
 * ItemPage
