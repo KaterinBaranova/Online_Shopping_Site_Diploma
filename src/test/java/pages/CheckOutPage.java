@@ -144,8 +144,8 @@ public class CheckOutPage extends BasePage {
         stateField.selectByVisibleText(stateName);
     }
 
-    public void fillAddressTitle(String Other) {
-        other.sendKeys(Other);
+    public void fillAddressTitle(String otherTitle) {
+        other.sendKeys(otherTitle);
     }
 
     public void clickSaveBtn() {
