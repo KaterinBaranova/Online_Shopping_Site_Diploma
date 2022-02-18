@@ -12,8 +12,8 @@ http://prestashop.qatestlab.com.ua/en/ is an end-end e-commerce website.
 
 ## Clone the repository into your projects directory: ##
 
-https://github.com/KaterinBaranova/Online_Shopping_Site.git
-
+https://github.com/KaterinBaranova/Online_Shopping_Site_Diploma.git
+ 
 ## Installation: ##
 
 * IDE: IntelliJ
