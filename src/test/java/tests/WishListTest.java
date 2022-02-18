@@ -14,6 +14,7 @@ public class WishListTest extends BaseTest {
     private ItemPage itemPage;
     private SignInPage signInPage;
     private WishlistPage wishlistPage;
+    private CatalogPage catalogPage;
 
 
     @BeforeMethod
@@ -21,6 +22,7 @@ public class WishListTest extends BaseTest {
         itemPage = new ItemPage (driver);
         signInPage = new SignInPage(driver);
         wishlistPage = new WishlistPage(driver);
+        catalogPage = new CatalogPage(driver);
     }
 
     @Test(description = "User is able to create and update wishlist", groups = {"Smoke Test"})
@@ -31,7 +33,7 @@ public class WishListTest extends BaseTest {
         signInPage.signInWithCredentials(LOGIN, PASSWORD);
         signInPage.openWishListPage();
         wishlistPage.createNewWishlist(wishlistName);
-        itemPage.openItem(PRODUCT_NAME);
+        catalogPage.openItem(PRODUCT_NAME);
         itemPage.clickAddToWishlist();
         assertTrue(itemPage.isFancyBoxTextDisplayed(), "Added to your wishlist.");
     }

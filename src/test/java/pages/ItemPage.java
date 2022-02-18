@@ -104,8 +104,4 @@ public class ItemPage extends BasePage {
     public void clickOnCheckoutButton() {
         getActions().click(clickOnCheckoutButton);
     }
-
-    public void openItem(String productName) {
-        driver.findElement(By.xpath("//a[contains(text(),'" + productName + "')]")).click();
-    }
 }

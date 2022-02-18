@@ -3,6 +3,7 @@ package tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.CartHoverPage;
+import pages.CatalogPage;
 import pages.CheckOutPage;
 import pages.ItemPage;
 
@@ -23,17 +24,19 @@ public class CheckOutTest extends BaseTest {
     private ItemPage itemPage;
     private CartHoverPage cartHoverPage;
     private CheckOutPage checkOutPage;
+    private CatalogPage catalogPage;
 
     @BeforeMethod
     public void navigate() {
         itemPage = new ItemPage (driver);
         cartHoverPage = new CartHoverPage(driver);
         checkOutPage = new CheckOutPage(driver);
+        catalogPage = new CatalogPage(driver);
     }
 
     @Test(description = "User is able to change items quantity on cart ", groups = {"Regression Test"})
     public void changeQuantityInCartTest() {
-        itemPage.openItem(PRODUCT_NAME);
+        catalogPage.openItem(PRODUCT_NAME);
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
@@ -46,7 +49,7 @@ public class CheckOutTest extends BaseTest {
 
     @Test(description = "User is able to remove items from cart", groups = {"Regression Test"})
     public void removeLastItemFromCartTest() {
-        itemPage.openItem(PRODUCT_NAME);
+        catalogPage.openItem(PRODUCT_NAME);
         itemPage.clickAddToCart();
         itemPage.closeCartFrame();
         cartHoverPage.clickCheckOutBtn();
@@ -61,7 +64,7 @@ public class CheckOutTest extends BaseTest {
    public void purchaseItemsFromCartForNotAuthorizedUserTest() {
        String expected_message = "No payment modules have been installed.";
 
-       itemPage.openItem(PRODUCT_NAME);
+       catalogPage.openItem(PRODUCT_NAME);
        itemPage.clickAddToCart();
        itemPage.clickOnCheckoutButton();
        checkOutPage.clickCheckOutBtn();
