@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.List;
-
 public class ItemPage extends BasePage {
 
     @FindBy(id = "layer_cart")
@@ -24,9 +22,6 @@ public class ItemPage extends BasePage {
 
     @FindBy(id = "group_1")
     private WebElement sizesDropdown;
-
-    @FindBy(id = "color_to_pick_list")
-    private WebElement colorOptions;
 
     @FindBy(id = "layer_cart_product_quantity")
     private WebElement quantityInCartFrame;
@@ -80,13 +75,9 @@ public class ItemPage extends BasePage {
     }
 
     public void setColor(String color) {
-        List<WebElement> colors = colorOptions.findElements(By.xpath(".//*"));
-        for (WebElement colorType : colors) {
-            if (colorType.getAttribute("title").equals(color)) {
-                getActions().click(colorType);
-            }
+        driver.findElement(By.xpath(String.format("//*[@id='color_to_pick_list']/li/a[@title='%s']", color))).click();
+
         }
-    }
 
     public String getColorFromCartFrame() {
         getActions().isElementDisplayed(cartFrame);
