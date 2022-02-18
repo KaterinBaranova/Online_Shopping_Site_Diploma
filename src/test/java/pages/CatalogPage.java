@@ -11,7 +11,7 @@ public class CatalogPage extends BasePage{
     }
 
     public void openItem(String productName) {
-        driver.findElement(By.xpath("//a[contains(text(),'" + productName + "')]")).click();
+        driver.findElement(By.xpath(String.format("//a[contains(text (), '%s' )]", productName))).click();
     }
 
 }
